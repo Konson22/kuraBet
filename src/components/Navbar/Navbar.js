@@ -1,24 +1,50 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { FaBars } from 'react-icons/fa'
+import React, { useState } from 'react'
+import { useTransition, animated } from 'react-spring'
+import { FaUserCircle, FaCog, FaBell } from 'react-icons/fa'
+import NavLinks from './NavLinks'
+import MobileNavLinks from './MobileNavLinks'
+import HeaderIcons from './HeaderIcons'
 
-import { Button } from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import './Navbar.css'
+export default function Navbar() {
+    const [ openMenu, setOpenMenu ] = useState(false)
 
-function Navbar() {
+    const transitions = useTransition(openMenu, null, {
+        from:{opacity:0, transform:'translateX(-100%'},
+        enter:{opacity:1, transform:'translateX(0)'},
+        leave:{opacity:0, transform:'translateX(-100%'}
+    })
+
+    function toggleMenu(){ 
+        setOpenMenu(!openMenu) 
+    }
+    function hideMenu(){
+        setOpenMenu(false) 
+    }
+    const bckImg = process.env.PUBLIC_URL+"/images/football.jpg"
     return (
-        <>
-            <div className="navbar-wraper">
-                <div className="navbar-links-wraper">
-                    
+        <header className="nav-container-wraper" style={{backgroundImage:`URL(${bckImg})`, backgroundSize:"100% 90%"}}>
+            <nav className="text-center links-container">
+                <div className="big-screen">
+                    <NavLinks />
+                    <div>
+                        <FaBell className="header-icon" />
+                        <FaCog className="header-icon mx-3" />
+                        <FaUserCircle className="header-icon" />
+                    </div>
                 </div>
-                <div className="menu-wraper">
-                    <Button>Log out</Button>
+                <div className="mobile-screen">
+                    {/* <HeaderIcons toggleMenu={ toggleMenu } openMenu={ openMenu } /> */}
+                    <MobileNavLinks toggleMenu={ toggleMenu } openMenu={ openMenu }/>
                 </div>
-            </div>
-        </>
+            </nav>
+            {
+            transitions.map(({item, key, props})=> 
+                item && <animated.div key={key} style={props} className="menu-container">
+                    {/* <NavLinks /> */}
+            </animated.div>
+            )
+        }
+        </header>
     )
 }
-
-export default Navbar

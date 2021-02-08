@@ -1,19 +1,111 @@
-
-
-nav{
-    height: 8vh;
-    background-color: rgb(67, 67, 70);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.navbar-wraper{
-    padding: 0 20px;
+.nav-container-wraper{
+    height: 25vh;
     width: 100%;
+    background-color: #1c1d1c;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.header-icons-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.links-container{
+    padding: 12px 10px;
+    width: 100%;
+    background-color: #313130;
+    border-bottom: 3px solid #eb7526;
+}
+
+.nav-link-icon{
+    margin-top: -5px;
+    color: #eb7526;
+}
+.sport-navbar{
+    width: 100%;
+    background-color: #669933;
+}
+
+.big-screen{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+.mobile-screen{
+    display: none;
+}
 
+.nav-link{
+    color: #fff;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
+.header-icon{
+    font-size: 28px;
+    color: #fff;
+}
+@media screen and (max-width:500px){
+    .nav-container-wraper{
+        height: 20vh;
+    }
+    .links-container{
+        padding: 0;
+        background-color: transparent;
+    }
+    .nav-link{
+        font-size: 16px;
+    }
+    .big-screen{
+        display: none;
+    }
+    .mobile-screen{
+        display: block;
+    }
+    .sport-navbar .nav-link{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        font-size: 12px;
+    }
+    .nav-link-icon{
+        margin-top: -5px;
+        color: #eb7526;
+        font-size: 22px;
+    }
+    .mobile-links-container{
+        padding: 10px;
+        width: 100%;
+        background-color: #e4620b;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .menu-container{
+        margin-top: 20vh;
+        height: 80vh;
+        width: 100%;
+        background-color: #222;
+        position: fixed;
+        top: 0;
+        z-index: 5;
+    }
+    .header-icons-container{
+        padding: 20px 10px;
+    }
+    .header-icon{
+        font-size: 25px;
+        color: #fff;
+    }
+}

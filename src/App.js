@@ -1,56 +1,43 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch, Link, component} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Navbar from './components/Navbar/Navbar'
-import Sidebar from './components/Sidebar/Sidebar'
-import LandingPage from './components/LandingPage/LandingPage'
 import Main from './components/Main/Main'
-import Students from './components/Students/Students'
-import Profile from './components/Students/Profile'
-import Stuffs from './components/Stuffs/Stuffs'
-import Register from './components/Register/Register'
-import Accountant from './components/Accountant/Accountant'
-import FeesCollection from './components/Accountant/FeesCollection/FeesCollection'
-import SingleClassFees from './components/Accountant/FeesCollection/SingleClassFees'
-import Payroll from './components/Accountant/Payroll/Payroll'
-import Expense from './components/Accountant/Expense/Expense'
+// import LeftSidebar from './components/Sidebars/LeftSidebar'
+import RightSidebar from './components/Sidebars/RightSidebar'
 import ScrollToTop from './components/ScrollToTop'
-import {DataProvider} from './components/GlobalContext/GlobalContext'
+import Basketball from './components/Pages/Basketball/Basketball'
+import Inplay from './components/Pages/Inplay/Inplay'
+import Soccer from './components/Pages/Soccer/Soccer'
+import Tennis from './components/Pages/Tennis/Tennis'
+import HourseRace from './components/Pages/HourseRace/HourseRace'
+import MultiMarket from './components/Pages/MultiMarket/MultiMarket'
+import Cricket from './components/Pages/Cricket/Cricket'
+import Sport from './components/Pages/Sport/Sport'
 import './App.css'
 export default function Admin() {
     return (
-      <Router>
-        <div className="App">
-        <aside>
-          <Sidebar />
-        </aside>
-        <section>
-          <nav>
-            <Navbar />
-            <ScrollToTop />
-          </nav>
-        <DataProvider>
-          <main>
-            <Switch>
-              <Route exact path="/"><Main /></Route>
-              <Route exact path="/SchoolMaster"><Main /></Route>
-              <Route  path="/SchoolMaster/students/:cName"><Students /></Route>
-              <Route  path="/SchoolMaster/profile/:id"><Profile /></Route>
-              <Route  path="/SchoolMaster/stuffs"><Stuffs /></Route>
-              <Route  path="/SchoolMaster/accountant" component={Accountant}>
-              </Route>
-              <Route  path="/SchoolMaster/single-class-record/:cName"><SingleClassFees /></Route>
-              <Route  path="/SchoolMaster/registerForm"><Register /></Route>
-              <Route  path="/SchoolMaster/fees-rocord"><FeesCollection /></Route>
-              <Route  path="/SchoolMaster/payroll"><Payroll /></Route>
-              <Route  path="/SchoolMaster/expenses"><Expense /> </Route>
-            </Switch>
-          </main>
-      </DataProvider>
-
-        </section>
-      </div>
-      </Router>
+       <Router>
+          <Navbar />
+          <ScrollToTop />
+          <Switch>
+            <div className="man-container">
+              {/* <LeftSidebar  /> */}
+              <main className="man-wraper">
+                <Route exact path="/"><Main /></Route>
+                <Route exact path="/sport"><Sport /></Route>
+                <Route exact path="/basketball"><Basketball /></Route>
+                <Route exact path="/inplay"><Inplay /></Route>
+                <Route exact path="/soccer"><Soccer /></Route>
+                <Route exact path="/tennis"><Tennis /></Route>
+                <Route exact path="/hourse-race"><HourseRace /></Route>
+                <Route exact path="/multi-market"><MultiMarket /></Route>
+                <Route exact path="/cricket"><Cricket /></Route>
+              </main>                
+              <RightSidebar />
+            </div>
+          </Switch>
+        </Router>
     )
 }
