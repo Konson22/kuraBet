@@ -15,7 +15,7 @@ export const DataProvider = props => {
   
     // FETCHING MATCHES DATA
     useEffect(()=>{
-        fetch('http://localhost:5000/matches').then(res => res.json()).then(data => setMatches({
+        fetch('https://mzansibet-api.herokuapp.com/matches').then(res => res.json()).then(data => setMatches({
             status:true,
             data:data
         }))
