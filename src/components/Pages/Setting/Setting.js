@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Tennis() {
+export default function Setting() {
     return (
         <div>
-            Tennis
+            Setting
         </div>
     )
 }

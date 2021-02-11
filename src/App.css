@@ -1,14 +1,14 @@
 
 body{
-  background-color: rgb(255, 255, 255);
+  background-color: #cdd1d1;
   font-family: Arial, Helvetica, sans-serif;
 }
 h1, h2, h3, h4, h5{
-  color: #fff;
+  color: #333;
 }
 .my-card-header{
   padding: 10px;
-  background-color: #669933;
+  background-color: #311286;
 }
 
 .man-container{
@@ -18,8 +18,9 @@ h1, h2, h3, h4, h5{
 }
 
 .man-wraper{
-  /* margin: 0 10px; */
+  margin: 0 5px;
   flex: 1;
+  background-color: #fff;
 }
 
 @media screen and (max-width:500px){

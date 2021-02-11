@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 
 export default function LeftSidebar() {
     return (
-        <div className="left-side-bar pt-1">
+        <div className="left-side-bar mt-1">
             <Card>
                 <Card.Header className="my-card-header">
                     <span>African Cap</span>

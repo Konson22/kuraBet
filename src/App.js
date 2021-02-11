@@ -3,18 +3,23 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Navbar from './components/Navbar/Navbar'
+import Profile from './components/Pages/Profile/Profile'
+import Setting from './components/Pages/Setting/Setting'
 import Main from './components/Main/Main'
-// import LeftSidebar from './components/Sidebars/LeftSidebar'
+import LeftSidebar from './components/Sidebars/LeftSidebar'
 import RightSidebar from './components/Sidebars/RightSidebar'
 import ScrollToTop from './components/ScrollToTop'
-import Basketball from './components/Pages/Basketball/Basketball'
+import Basketball from './components/Pages/Sport/Basketball/Basketball'
 import Inplay from './components/Pages/Inplay/Inplay'
 import Soccer from './components/Pages/Soccer/Soccer'
-import Tennis from './components/Pages/Tennis/Tennis'
+import Tennis from './components/Pages/Sport/Tennis/Tennis'
 import HourseRace from './components/Pages/HourseRace/HourseRace'
 import MultiMarket from './components/Pages/MultiMarket/MultiMarket'
 import Cricket from './components/Pages/Cricket/Cricket'
 import Sport from './components/Pages/Sport/Sport'
+import Checout from './components/Pages/Sport/Checout'
+import { DataProvider } from './components/GlobalContext/GlobalContext'
+
 import './App.css'
 export default function Admin() {
     return (
@@ -22,13 +27,19 @@ export default function Admin() {
           <Navbar />
           <ScrollToTop />
           <Switch>
+         <DataProvider>
             <div className="man-container">
-              {/* <LeftSidebar  /> */}
-              <main className="man-wraper">
+              <LeftSidebar  />
+              <main className="man-wraper m2">
                 <Route exact path="/"><Main /></Route>
+                <Route exact path="/profile"><Profile /></Route>
+                <Route exact path="/Setting"><Setting /></Route>
                 <Route exact path="/sport"><Sport /></Route>
+                <Route exact path="/checout"><Checout /></Route>
                 <Route exact path="/basketball"><Basketball /></Route>
-                <Route exact path="/inplay"><Inplay /></Route>
+                <Route exact path="/inplay" component={Inplay}>
+                  {/* <Route  path="/"><Soccer /></Route> */}
+                </Route>
                 <Route exact path="/soccer"><Soccer /></Route>
                 <Route exact path="/tennis"><Tennis /></Route>
                 <Route exact path="/hourse-race"><HourseRace /></Route>
@@ -37,6 +48,7 @@ export default function Admin() {
               </main>                
               <RightSidebar />
             </div>
+          </DataProvider>
           </Switch>
         </Router>
     )

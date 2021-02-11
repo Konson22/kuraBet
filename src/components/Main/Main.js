@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card  } from 'react-bootstrap';
-import GamesTable from '../GamesTable/GamesTable'
+// import GamesTable from '../GamesTable/GamesTable'
 
 export default function Main() {
     return (
@@ -9,7 +9,7 @@ export default function Main() {
                 <header className="my-card-header">
                     <h5>African Cap</h5>
                 </header>
-                <GamesTable />
+                {/* <GamesTable /> */}
             </Card>
         </div>
     )

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useTransition, animated } from 'react-spring'
-import { FaUserCircle, FaCog, FaBell } from 'react-icons/fa'
+import { FaTimes, FaBars } from 'react-icons/fa'
+
 import NavLinks from './NavLinks'
 import MobileNavLinks from './MobileNavLinks'
-import HeaderIcons from './HeaderIcons'
 
 import './Navbar.css'
 export default function Navbar() {
@@ -18,9 +18,9 @@ export default function Navbar() {
     function toggleMenu(){ 
         setOpenMenu(!openMenu) 
     }
-    function hideMenu(){
-        setOpenMenu(false) 
-    }
+    // function hideMenu(){
+    //     setOpenMenu(false) 
+    // }
     const bckImg = process.env.PUBLIC_URL+"/images/football.jpg"
     return (
         <header className="nav-container-wraper" style={{backgroundImage:`URL(${bckImg})`, backgroundSize:"100% 90%"}}>
@@ -28,20 +28,18 @@ export default function Navbar() {
                 <div className="big-screen">
                     <NavLinks />
                     <div>
-                        <FaBell className="header-icon" />
-                        <FaCog className="header-icon mx-3" />
-                        <FaUserCircle className="header-icon" />
+                        <MobileNavLinks toggleMenu={ toggleMenu } openMenu={ openMenu }/>
                     </div>
                 </div>
                 <div className="mobile-screen">
-                    {/* <HeaderIcons toggleMenu={ toggleMenu } openMenu={ openMenu } /> */}
+                    <span onClick={ toggleMenu }>{ openMenu ? <FaTimes className="header-icon" /> : <FaBars className="header-icon" /> }</span>
                     <MobileNavLinks toggleMenu={ toggleMenu } openMenu={ openMenu }/>
                 </div>
             </nav>
             {
             transitions.map(({item, key, props})=> 
                 item && <animated.div key={key} style={props} className="menu-container">
-                    {/* <NavLinks /> */}
+                    <NavLinks />
             </animated.div>
             )
         }

@@ -1,11 +1,9 @@
 import React from 'react'
 
-
-export default function Inplay() {
+export default function Profile() {
     return (
         <div>
-            inplay
-            
+            Profile
         </div>
     )
 }
