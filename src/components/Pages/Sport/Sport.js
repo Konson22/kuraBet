@@ -64,7 +64,7 @@ export default function Sport() {
       <div>
          <Subnavbar />
          <div className="sport-inner-content-wraper">
-            { fixtures.status ? fixtures.data[0].rounds.map(round => <SportTable togglePopupModule={togglePopupModule} round={ round } /> ) : <Loader /> }
+            { fixtures.status ? fixtures.data[0].rounds.map(round => <SportTable togglePopupModule={togglePopupModule} round={ round } /> ) : "loading.." }
          </div>
          <div className={ isActive ? "overlay-module-wraper show" : "overlay-module-wraper hide" }>
             <Card className="inner-module-wraper">
@@ -88,7 +88,7 @@ export default function Sport() {
                            <span><b>Away</b> { currentSelectedMatch.aTeam.odds }</span>
                         </div> 
                         </>
-                        : <Loader />
+                        : "loading.."
                      }
                   </div>
                   <div className="text-center m-4">
