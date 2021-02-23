@@ -1,35 +1,72 @@
-
-body{
-  background-color: #cdd1d1;
-  font-family: Arial, Helvetica, sans-serif;
-}
-h1, h2, h3, h4, h5{
-  color: #333;
-}
-.my-card-header{
-  padding: 10px;
-  background-color: #311286;
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.man-container{
-  display: flex;
-  justify-content: space-between;
-  position: relative;
+.dark-bg{
+    background-color: rgba(221, 221, 230, 0.677)
 }
 
-.man-wraper{
-  margin: 0 5px;
-  flex: 1;
-  background-color: #fff;
+
+.light-dark-bg{
+    background-color: rgb(252, 252, 252);
 }
 
-@media screen and (max-width:500px){
-  .man-wraper{
-    margin: 0px;
+.blue-bg{
+    width:100%;
+    background-image: linear-gradient(to bottom, rgb(52, 79, 233), rgb(4, 33, 196));
+}
+.blue-bg h4{
+    padding: 10px;
+    color: #fff;
+}
+.title-wraper{
+    width:100%;
+    height:60px;
+    background-image: linear-gradient(to bottom, rgb(52, 79, 233), rgb(4, 26, 155));
+}
+
+.main-app-wraper{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    background-color: #ccc;
+}
+
+.main-container{
+    margin: 5px 8px;
     flex: 1;
-  }
-  .my-card-header{
-    padding: 5px;
-    background-color: #669933;
-  }
+}
+
+.left-wraper{
+    margin-top: 5px;
+    /* height: 80vh; */
+    flex-basis: 16%;
+}
+
+.right-wraper{
+    margin-top: 5px;
+    height: 80vh;
+    flex-basis: 22%;
+}
+
+.my-table{
+    width: 100%;
+}
+.my-table tr{
+    border-bottom: 1px solid #eee;
+}
+.my-table tr td{
+    padding: 6px;
+    font-size: 14px;
+    color: #222;
+}
+@media screen and (max-width:600px){
+    .main-container{
+        margin: 0;
+    }
+    .left-wraper, .right-wraper{
+        display: none;
+    }
 }

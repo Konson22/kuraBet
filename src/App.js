@@ -1,55 +1,47 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css'
-
-import Navbar from './components/Navbar/Navbar'
-import Profile from './components/Pages/Profile/Profile'
-import Setting from './components/Pages/Setting/Setting'
-import Main from './components/Main/Main'
-import LeftSidebar from './components/Sidebars/LeftSidebar'
-import RightSidebar from './components/Sidebars/RightSidebar'
-import ScrollToTop from './components/ScrollToTop'
-import Basketball from './components/Pages/Sport/Basketball/Basketball'
-import Inplay from './components/Pages/Inplay/Inplay'
-import Soccer from './components/Pages/Soccer/Soccer'
-import Tennis from './components/Pages/Sport/Tennis/Tennis'
-import HourseRace from './components/Pages/HourseRace/HourseRace'
-import MultiMarket from './components/Pages/MultiMarket/MultiMarket'
-import Cricket from './components/Pages/Cricket/Cricket'
+import HomePage from './components/Pages/HomePage/HomePage'
 import Sport from './components/Pages/Sport/Sport'
-import Checout from './components/Pages/Sport/Checout'
+import LiveNow from './components/Pages/Sport/LiveNow/LiveNow'
+import Results from './components/Pages/Sport/Results/Results'
+import Upcoming from './components/Pages/Sport/Upcoming/Upcoming'
+import Header from './components/Header/Header'
+import Subheader from './components/Header/Subheader'
+import Rightbar from './components/Sidebars/Rightbar'
+import Cards from './components/Pages/Cards/Cards'
+import LeftSidebar from './components/Sidebars/Leftbar'
 import { DataProvider } from './components/GlobalContext/GlobalContext'
 
 import './App.css'
+
+
 export default function Admin() {
     return (
        <Router>
-          <Navbar />
-          <ScrollToTop />
-          <Switch>
-         <DataProvider>
-            <div className="man-container">
-              <LeftSidebar  />
-              <main className="man-wraper m2">
-                <Route exact path="/"><Main /></Route>
-                <Route exact path="/profile"><Profile /></Route>
-                <Route exact path="/Setting"><Setting /></Route>
-                <Route exact path="/sport"><Sport /></Route>
-                <Route exact path="/checout"><Checout /></Route>
-                <Route exact path="/basketball"><Basketball /></Route>
-                <Route exact path="/inplay" component={Inplay}>
-                  {/* <Route  path="/"><Soccer /></Route> */}
-                </Route>
-                <Route exact path="/soccer"><Soccer /></Route>
-                <Route exact path="/tennis"><Tennis /></Route>
-                <Route exact path="/hourse-race"><HourseRace /></Route>
-                <Route exact path="/multi-market"><MultiMarket /></Route>
-                <Route exact path="/cricket"><Cricket /></Route>
-              </main>                
-              <RightSidebar />
-            </div>
+          <Header />
+          <DataProvider>
+          <div className="main-app-wraper">
+            <aside className="left-wraper">
+              <LeftSidebar />
+            </aside>
+
+            <main className="main-container">
+              <Subheader/>
+              <Switch>
+                <Route exact path="/" component={HomePage} />
+                <Route exact path="/sport" component={Sport} />
+                <Route exact path="/live-now" component={LiveNow} />
+                <Route exact path="/results" component={Results} />
+                <Route exact path="/upcoming" component={Upcoming} />
+                <Route exact path="/cards" component={Cards} />
+              </Switch>
+            </main>
+
+            <aside className="right-wraper">
+              <Rightbar />
+            </aside>
+          </div>
           </DataProvider>
-          </Switch>
         </Router>
     )
 }
