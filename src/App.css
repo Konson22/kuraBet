@@ -69,4 +69,9 @@ body {
     .left-wraper, .right-wraper{
         display: none;
     }
+    .my-table tr td{
+        padding: 4px;
+        font-size: 11px;
+        color: #222;
+    }
 }

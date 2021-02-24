@@ -43,3 +43,11 @@
 	display: flex;
 	justify-content: space-around;
 }
+
+@media screen and (max-width:600px){
+	.inner-module-wraper{
+		width:98%;
+		background-color: #fff;
+		border-radius: 6px;
+	}
+}
