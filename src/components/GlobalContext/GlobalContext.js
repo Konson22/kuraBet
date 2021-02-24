@@ -32,7 +32,7 @@ export const DataProvider = props => {
 	})
 
 	useEffect(()=>{
-		fetch('http://localhost:5000/fixtures').then(res => res.json()).then(data => setFixtures({
+		fetch('https://mzansibet-api.herokuapp.com/fixtures').then(res => res.json()).then(data => setFixtures({
 		status:true,
 		data:data,
 		error:false
