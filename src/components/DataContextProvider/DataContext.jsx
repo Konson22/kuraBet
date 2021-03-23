@@ -69,9 +69,9 @@ export  function DataContext(props) {
 	const [teamOdds, setOdds] = useState(null)
 	const [matches, setMatches] = useState(null)
 
-	useEffect(() => axios('mzansibet-api.herokuapp.com/odds').then(response => setOdds(response.data)), [])
-	useEffect(() => axios('mzansibet-api.herokuapp.com/standings').then(response => setStanding(response.data.data)), [])
-	useEffect(() => axios('mzansibet-api.herokuapp.com/matches').then(response => setMatches(response)), [])
+	useEffect(() => axios('https://mzansibet-api.herokuapp.com/odds').then(response => setOdds(response.data)), [])
+	useEffect(() => axios('https://mzansibet-api.herokuapp.com/standings').then(response => setStanding(response.data.data)), [])
+	useEffect(() => axios('https://mzansibet-api.herokuapp.com/matches').then(response => setMatches(response)), [])
 
 	useEffect(()=> {
 		state.tempCardData && localStorage.setItem('tempCard', JSON.stringify(state.tempCardData)) 
