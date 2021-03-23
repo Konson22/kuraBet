@@ -1,31 +1,29 @@
 
-
-.sidebar-content-wraper{
-    margin-bottom: 20px;
-    width: 100%;
-    /* background-color: rgb(255, 255, 255); */
+.signle-card{
+	padding: 5px;
 }
-.sidebar-content-wraper.right{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.signle-card h4{
+	color: #333;
 }
-.sidebar-content-wraper.right div{
-    padding: 5px;
-    flex-basis: 49%;
-    border: 1px solid #ccc;
+.multi-crad{
+	padding: 5px;
 }
 
-.sidebar-content-wraper table{
-    width: 100%;
+.my-success-btn{
+	margin: 0 5px;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 3px;
+	color: #fff;
+	font-size: 18px;
+	background-color: rgb(131, 177, 6);
 }
-.sidebar-content-wraper table tr td{
-    font-size: 14px;
-}
-.sidebar-content-wraper .inner-table{
-    width: 100%;
-    border-top: 1px solid #222;
-}
-.sidebar-content-wraper .inner-table tr td{
-    padding: 5px;
+.my-danger-btn{
+	margin: 0 5px;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 3px;
+	color: #fff;
+	font-size: 18px;
+	background-color: rgb(184, 1, 47);
 }

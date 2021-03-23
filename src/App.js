@@ -1,47 +1,46 @@
-import React from 'react'
+import { useContext } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { DataContext } from './components/DataContextProvider/DataContext'
+import Navbar from './components/MainNavbar/Navbar'
 import HomePage from './components/Pages/HomePage/HomePage'
-import Sport from './components/Pages/Sport/Sport'
-import LiveNow from './components/Pages/Sport/LiveNow/LiveNow'
-import Results from './components/Pages/Sport/Results/Results'
-import Upcoming from './components/Pages/Sport/Upcoming/Upcoming'
+import Sport from './components/Pages/Sport/SportMain'
+import Table from './components/Pages/Sport/Views/Table'
+import Result from './components/Pages/Sport/Views/Result'
+import Profile from './components/Pages/Profile/Profile'
+import UserCards from './components/Pages/UserCards/UserCards'
+import TempCard from './components/Sidebars/TempCard'
+import QuickLink from './components/Sidebars/QuickLink'
 import Header from './components/Header/Header'
-import Subheader from './components/Header/Subheader'
-import Rightbar from './components/Sidebars/Rightbar'
-import Cards from './components/Pages/Cards/Cards'
-import LeftSidebar from './components/Sidebars/Leftbar'
-import { DataProvider } from './components/GlobalContext/GlobalContext'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'react-bootstrap'
+import './App.css';
 
-import './App.css'
-
-
-export default function Admin() {
-    return (
-       <Router>
-          <Header />
-          <DataProvider>
-          <div className="main-app-wraper">
-            <aside className="left-wraper">
-              <LeftSidebar />
-            </aside>
-
-            <main className="main-container">
-              <Subheader/>
+function App() {
+  
+  return (
+    <Router>
+      <DataContext>
+      <div className="App">
+        <Navbar />
+        <Header />
+          <div className="app-inner-container d-flex">
+            <QuickLink />
+            <div className="app-container">
               <Switch>
-                <Route exact path="/" component={HomePage} />
-                <Route exact path="/sport" component={Sport} />
-                <Route exact path="/live-now" component={LiveNow} />
-                <Route exact path="/results" component={Results} />
-                <Route exact path="/upcoming" component={Upcoming} />
-                <Route exact path="/cards" component={Cards} />
+                <Route exact path="/" component={ Sport }/>
+                <Route exact path="/sport" component={ Sport }/>
+                <Route exact path="/sport/table" component={ Table }/>
+                <Route exact path="/sport/results" component={ Result }/>
+                <Route exact path="/profile" component={ Profile }/>
+                <Route exact path="/shoping-card" component={ TempCard }/>
+                <Route exact path="/my-cards" component={ UserCards }/>
               </Switch>
-            </main>
-
-            <aside className="right-wraper">
-              <Rightbar />
-            </aside>
+            </div>
           </div>
-          </DataProvider>
-        </Router>
-    )
+      </div>
+      </DataContext>
+    </Router>
+  );
 }
+
+export default App;
